@@ -27,7 +27,7 @@ RUN cd /tmp && \
     mv oc kubectl /usr/local/bin/ && \
     rm -rf ./*
 
-ARG TERRAFORM_VERSION="0.11.14"
+ARG TERRAFORM_VERSION="0.12.20"
 
 RUN cd /tmp && \
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
