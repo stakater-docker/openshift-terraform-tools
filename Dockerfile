@@ -2,7 +2,7 @@ FROM vmware/powerclicore:ubuntu18.04
 
 RUN apt-get update
 
-RUN apt-get install -y wget jq git
+RUN apt-get install -y wget jq git python3
 
 # Update Modules
 #RUN pwsh -c "\$ProgressPreference = \"SilentlyContinue\"; Update-Module -Force -AcceptLicense -Confirm:\$false"
@@ -48,7 +48,8 @@ RUN cd /tmp && \
     rm -rf ./*
 
 RUN mkdir -p /terraform
+RUN mkdir -p ~/.config/openstack/
 
-#ADD . /terraform/
+WORKDIR /terraform
 
 CMD ["/bin/bash"]
