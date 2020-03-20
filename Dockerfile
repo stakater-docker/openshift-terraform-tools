@@ -48,7 +48,8 @@ RUN cd /tmp && \
     rm -rf ./*
 
 RUN mkdir -p /terraform
+RUN mkdir -p ~/.config/openstack/
 
-#ADD . /terraform/
+WORKDIR /terraform
 
 CMD ["/bin/bash"]
