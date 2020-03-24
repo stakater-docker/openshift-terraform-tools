@@ -2,7 +2,7 @@ FROM vmware/powerclicore:ubuntu18.04
 
 RUN apt-get update
 
-RUN apt-get install -y wget jq git python3 python3-pip
+RUN apt-get install -y wget jq git python python-pip
 RUN python -m pip install pyyaml
 
 # Update Modules
