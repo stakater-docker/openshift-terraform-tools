@@ -10,7 +10,7 @@ RUN pwsh -c "Set-PowerCLIConfiguration -Scope AllUsers -ParticipateInCEIP \$fals
     pwsh -c "Import-Module VMware.VimAutomation.Core | Out-Null" && \
     pwsh -c "Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:\$false | Out-Null"
 
-ARG OPENSHIFT_VERSION="4.3.5"
+ARG OPENSHIFT_VERSION="4.4.0-rc.4"
 
 RUN cd /tmp && \
     wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OPENSHIFT_VERSION}/openshift-install-linux-${OPENSHIFT_VERSION}.tar.gz && \
