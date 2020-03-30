@@ -13,8 +13,8 @@ RUN pwsh -c "Set-PowerCLIConfiguration -Scope AllUsers -ParticipateInCEIP \$fals
 ARG OPENSHIFT_VERSION="4.4.0-rc.4"
 
 RUN cd /tmp && \
-    wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OPENSHIFT_VERSION}/openshift-install-linux-${OPENSHIFT_VERSION}.tar.gz && \
-    tar -xvf openshift-install-linux-${OPENSHIFT_VERSION}.tar.gz && \
+    wget https://github.com/stakater/installer/raw/release-4.4-patched/bin/openshift-install.tar.xz && \
+    tar -xvf openshift-install.tar.xz && \
     chmod +x openshift-install && \
     mv openshift-install /usr/local/bin/ && \
     rm -rf ./*
