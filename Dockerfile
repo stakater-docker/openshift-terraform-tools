@@ -3,9 +3,6 @@ FROM vmware/powerclicore:ubuntu18.04
 RUN apt-get update && apt-get install -y wget jq git python python-pip
 RUN python -m pip install pyyaml
 
-# Update Modules
-#RUN pwsh -c "\$ProgressPreference = \"SilentlyContinue\"; Update-Module -Force -AcceptLicense -Confirm:\$false"
-
 RUN pwsh -c "Set-PowerCLIConfiguration -Scope AllUsers -ParticipateInCEIP \$false -Confirm:\$false | Out-Null" && \
     pwsh -c "Import-Module VMware.VimAutomation.Core | Out-Null" && \
     pwsh -c "Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:\$false | Out-Null"
