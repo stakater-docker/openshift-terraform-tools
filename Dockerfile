@@ -3,14 +3,11 @@ FROM vmware/powerclicore:ubuntu18.04
 RUN apt-get update && apt-get install -y wget jq git python python-pip
 RUN python -m pip install pyyaml
 
-# Update Modules
-#RUN pwsh -c "\$ProgressPreference = \"SilentlyContinue\"; Update-Module -Force -AcceptLicense -Confirm:\$false"
-
 RUN pwsh -c "Set-PowerCLIConfiguration -Scope AllUsers -ParticipateInCEIP \$false -Confirm:\$false | Out-Null" && \
     pwsh -c "Import-Module VMware.VimAutomation.Core | Out-Null" && \
     pwsh -c "Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:\$false | Out-Null"
 
-ARG OPENSHIFT_VERSION="4.3.5"
+ARG OPENSHIFT_VERSION="4.4.6"
 
 RUN cd /tmp && \
     wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OPENSHIFT_VERSION}/openshift-install-linux-${OPENSHIFT_VERSION}.tar.gz && \
