@@ -7,7 +7,7 @@ RUN pwsh -c "Set-PowerCLIConfiguration -Scope AllUsers -ParticipateInCEIP \$fals
     pwsh -c "Import-Module VMware.VimAutomation.Core | Out-Null" && \
     pwsh -c "Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:\$false | Out-Null"
 
-ARG OPENSHIFT_VERSION="4.4.6"
+ARG OPENSHIFT_VERSION="4.5.2"
 
 RUN cd /tmp && \
     wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OPENSHIFT_VERSION}/openshift-install-linux-${OPENSHIFT_VERSION}.tar.gz && \
@@ -23,7 +23,7 @@ RUN cd /tmp && \
     mv oc kubectl /usr/local/bin/ && \
     rm -rf ./*
 
-ARG TERRAFORM_VERSION="0.12.20"
+ARG TERRAFORM_VERSION="0.12.28"
 
 RUN cd /tmp && \
     wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
@@ -34,7 +34,7 @@ RUN cd /tmp && \
 
 RUN mv /usr/bin/jq /usr/local/bin/
 
-ARG HELM_VERSION="3.0.3"
+ARG HELM_VERSION="3.2.4"
 
 RUN cd /tmp && \
     wget https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && \
